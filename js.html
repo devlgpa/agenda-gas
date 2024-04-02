@@ -88,6 +88,17 @@
                 let celda = document.createElement('td');
                 celda.textContent = obj[i][j];
                 fila.appendChild(celda);
+
+                //si es el quinto elemento de la fila
+                if( j == 4)
+                {
+                    //creamos la imagen
+                    celda.textContent = '';
+                    let imagen = document.createElement('img');
+                    imagen.classList.add('img-fluid', 'rounded');
+                    imagen.src = obj[i][j];
+                    celda.appendChild(imagen);
+                }
             }
             // Agregar los botones a la fila
             fila.appendChild(crearCeldaBotones(i + 1, obj[i]));
@@ -102,7 +113,7 @@
         tabla.classList.add('table', 'table-striped', 'border', 'border-3', 'border-dark');
         // Agregamos tabla a la página
         document.getElementById('divContactos').appendChild(tabla);
-        
+
         // Eliminamos el loader
         eliminarLoader();
     }
